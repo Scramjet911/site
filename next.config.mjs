@@ -1,9 +1,10 @@
 import './src/lib/env/env.mjs';
+import withExportImages from 'next-export-optimize-images';
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = withExportImages({
   output: 'export',
   reactStrictMode: true
-};
+});
 
 export default nextConfig;

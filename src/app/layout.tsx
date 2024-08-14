@@ -24,7 +24,7 @@ interface RootLayoutProps {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
-      <body className={cn(inter.variable, 'font-primary')} suppressHydrationWarning>
+      <body className={cn(inter.variable, 'font-primary scrollbar-thin')} suppressHydrationWarning>
         <MainProvider>
           <MainLayout>{children}</MainLayout>
         </MainProvider>

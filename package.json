@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next-export-optimize-images",
     "start": "next start",
     "prettier:format": "prettier --write .",
     "prettier:check": "prettier --check \"**/*.{ts,tsx,json}\"",
@@ -67,6 +67,7 @@
     "jest-environment-jsdom": "29.7.0",
     "jest-watch-typeahead": "2.2.2",
     "lint-staged": "15.2.8",
+    "next-export-optimize-images": "^4.5.0",
     "pinst": "3.0.0",
     "plop": "4.0.1",
     "postcss": "8.4.41",
