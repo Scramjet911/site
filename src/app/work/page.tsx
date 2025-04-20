@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 
 // const RevealOnScroll = ({ children }: { children: JSX.Element }) => {
 //   const [isVisible, setIsVisible] = useState(false);
@@ -34,10 +34,26 @@ import { useEffect, useRef } from 'react';
 //   );
 // };
 
-const workList: Record<string, string[]> = {
-  'Option 1': ['So and so was good', 'another user was bad'],
-  'Option 2': ['So and so was good', 'another user was bad'],
-  'Option 3': ['So and so was good', 'another user was bad']
+const workList: Record<string, Array<ReactNode>> = {
+  Scrambleid: [
+    'Migrated services form AWS Lambdas to a nodejs fastify server and acheived a speedup of 50% and cost reduction.',
+    'Wrote CRUD operations in dynamodb to fetch app data'
+  ],
+  'Keyvalue Software Systems': [
+    <span key="" className="flex">
+      Worked on functional benchmarks in python for LLM&apos;s. Cited in{' '}
+      <a
+        className="hover:text-blue-600 text-blue-200"
+        href="https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf"
+        target="_blank"
+        rel="nooperner noreferrer"
+      >
+        Google&apos;s Gemini 1.5 report
+      </a>
+    </span>,
+    'Collaborated with a team to createa React Native-Android package for image processing, PDF manipulation and API querying.'
+  ],
+  Projects: ['']
 };
 const Work = () => {
   const progressRef = useRef<HTMLDivElement>(null);
@@ -68,11 +84,13 @@ const Work = () => {
         {Object.keys(workList).map((workItem) => (
           <div key={workItem}>
             <h3 className="text-3xl">{workItem}</h3>
-            <ul className="list-['-_'] list-inside text-lg">
+            <div className="text-lg">
               {workList[workItem].map((subItem) => (
-                <li key={subItem}>{subItem}</li>
+                <p key={subItem?.toString()} className="flex whitespace-pre">
+                  - {subItem}
+                </p>
               ))}
-            </ul>
+            </div>
           </div>
         ))}
       </div>
